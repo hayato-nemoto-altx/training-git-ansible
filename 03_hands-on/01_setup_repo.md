@@ -14,40 +14,50 @@
 ---
 
 ## Step 2. リポジトリの準備
-### GitHubでリポジトリを作る
-1. GitHubの画面右上の `+` ➔ `New repository` を押します。
+
+### ① GitHubでリポジトリを作る
+1. GitHubの画面右上の `+` ➔ **`New repository`** を押します。
 2. リポジトリ名（例: `my-ansible-training`）を入力し、公開範囲を **Private（プライベート）** にします。
 3. **「Add a README file」に必ずチェックを入れて**、「Create repository」を押します。
-   - *💡 理由：最初の空っぽの状態を防ぎ、すぐに手元に持ってこられるようにするためです。*
+   > 💡 **理由：** 最初の空っぽの状態を防ぎ、すぐに手元に持ってこられるようにするためです。
 
-### SourceTreeで自分のPCにクローン（複製）する
-1. GitHubのリポジトリ画面にある `<> Code` ボタンから、URL（HTTPS）をコピーします。
+### ② SourceTreeで自分のPCにクローン（複製）する
+1. GitHubのリポジトリ画面にある **`<> Code`** ボタンから、URL（HTTPS）をコピーします。
 2. **SourceTree**を開き、「クローン」タブでそのURLを貼り付け、保存先のフォルダを指定してクローンを実行します。これで自分のPCにリモートリポジトリをコピーできました。
 
-### 最初のファイルを仕込む
+### ③ 最初のファイルを仕込む
 1. クローンしてできたフォルダを **VS Code** で開きます。
 2. フォルダの中に `site.yml` という名前のファイルを作り、以下のコードをそのまま書き込んで保存します。
-   ```yaml
-   # site.yml
-   - name: Webページ作成の準備
-     hosts: localhost
-     vars:
-       team_name: "ベースチーム"
-     tasks:
-       - debug:
-           msg: "ようこそ、{{ team_name }}！"
 
-### SourceTreeでGitHubへプッシュする
-VS Codeのターミナル、またはSourceTreeに戻り、作成した site.yml をGitHubへ送ります。
+```yaml
+# site.yml
+- name: Webページ作成の準備
+  hosts: localhost
+  vars:
+    team_name: "ベースチーム"
+  tasks:
+    - debug:
+        msg: "ようこそ、{{ team_name }}！"
+```
 
-SourceTreeで「すべてステージする」 ➔ コミットメッセージに 初期設定 と入力してコミット ➔ 「プッシュ」ボタンを押して main ブランチに送り出します。
+### ④ SourceTreeでGitHubへプッシュする
+VS Codeのターミナル、またはSourceTreeに戻り、作成した `site.yml` をGitHubへ送ります。
 
-(CLI参考) git add site.yml → git commit -m "初期設定" → git push origin main
+1. SourceTreeで「すべてステージする」をクリック。
+2. コミットメッセージに `初期設定` と入力してコミット。
+3. 「プッシュ」ボタンを押して `main` ブランチに送り出します。
+
+> 💡 **ターミナル（CLI）で行う場合**
+> ```bash
+> git add site.yml
+> git commit -m "初期設定"
+> git push origin main
+> ```
 
 ---
 
-### チャレンジ課題（余裕がある人はやってみよう！）
-site.yml の中に、もう一つ debug タスクを追加して、ターミナルに「自分の名前や好きな食べ物」を表示させてみよう！
-（ヒント：- debug: { msg: "私の名前は〇〇です" } をタスクの下に並べて書いてみよう）
+### 🌟 チャレンジ課題（余裕がある人はやってみよう！）
+`site.yml` の中に、もう一つ debug タスクを追加して、ターミナルに「自分の名前や好きな食べ物」を表示させてみよう！
+（ヒント：`- debug: { msg: "私の名前は〇〇です" }` をタスクの下に並べて書いてみよう）
 
 ここまで終わったら、第1コマは完了です！お疲れ様でした。
