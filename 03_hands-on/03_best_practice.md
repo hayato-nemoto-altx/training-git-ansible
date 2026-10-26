@@ -28,30 +28,30 @@
 
 3. `site.yml`を完全に書き換える：`site.yml`の中身を、以下のようにHTMLを作る指示書に書き換えます（変数定義の`vars:`の部分はもう不要なので消してOKです）。
 
-  ```yaml
-  # site.yml
-  - name: ローカルWebページの生成
-    hosts: localhost
-    tasks:
-      - name: index.html を作成する
-        copy:
-          dest: "./index.html"
-          content: |
-            <!DOCTYPE html>
-            <html lang="ja">
-            <head>
-                <meta charset="UTF-8">
-                <title>Ansible テストページ</title>
-            </head>
-            <body>
-                <h1>ようこそ！</h1>
-                <p>このページは <b>{{ team_name }}</b> が自動生成しました。</p>
-            </body>
-            </html>
-
-4. プッシュ： コミット＆プッシュし、GitHubでPRを作成します。
+    ```yaml
+    # site.yml
+    - name: ローカルWebページの生成
+      hosts: localhost
+      tasks:
+        - name: index.html を作成する
+          copy:
+            dest: "./index.html"
+            content: |
+              <!DOCTYPE html>
+              <html lang="ja">
+              <head>
+                  <meta charset="UTF-8">
+                  <title>Ansible テストページ</title>
+              </head>
+              <body>
+                  <h1>ようこそ！</h1>
+                  <p>このページは <b>{{ team_name }}</b> が自動生成しました。</p>
+              </body>
+              </html>
 
 ---
+
+4. プッシュ： コミット＆プッシュし、GitHubでPRを作成します。
 
 ### Step 9. 【自動マージの確認】
 GitHubのBさんのPR画面を見てみてください。
