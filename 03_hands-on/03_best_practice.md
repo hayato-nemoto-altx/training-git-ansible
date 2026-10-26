@@ -22,6 +22,18 @@ team_name: "インフラ構築チーム"
 
 4. **プッシュとマージ：** コミット＆プッシュし、GitHubでPRを作ってそのままマージします！
 
+> [!TIP]
+> **ターミナル（CLI）で行う場合**
+> ```bash
+> git checkout main
+> git pull origin main
+> git checkout -b feature/vars
+> # (group_vars/all.yml を作成して保存)
+> git add group_vars/all.yml
+> git commit -m "変数を別ファイルに分離"
+> git push origin feature/vars
+> ```
+
 ---
 
 ## Step 8. 【Bさんの作業】タスクを書き換える（※また古い状態から）
@@ -52,6 +64,18 @@ team_name: "インフラ構築チーム"
 ```
 
 4. **プッシュ：** コミット＆プッシュし、GitHubでPRを作成します。
+
+> [!TIP]
+> **ターミナル（CLI）で行う場合**
+> ```bash
+> git checkout main
+> # ⚠️ ここで git pull は絶対にしない！
+> git checkout -b feature/html-task
+> # (site.yml を書き換えて保存)
+> git add site.yml
+> git commit -m "タスクをHTML作成に変更"
+> git push origin feature/html-task
+> ```
 
 ---
 

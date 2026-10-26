@@ -8,6 +8,14 @@
 1. **最新状態を集める：**
    - SourceTreeで `main` ブランチに切り替えます。
    - **「Pull」** ボタンを押して、GitHubにある最新の全ファイルをローカルに引っ張ってきます。
+   
+> [!TIP]
+> **ターミナル（CLI）で行う場合**
+> ```bash
+> git checkout main
+> git pull origin main
+> ```
+
 2. **ファイルが揃っているか確認する：**
    - フォルダの中に、Aさんが作った `group_vars/all.yml` と、Bさんが書き換えた新しい `site.yml` の両方が綺麗に揃っていることを確認します。
 3. **Ansibleを走らせる！**
